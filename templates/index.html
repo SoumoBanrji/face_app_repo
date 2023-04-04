@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Acne Detection App</title>
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 48px;
+        color: #222;
+      }
+      form {
+        margin-top: 50px;
+        text-align: center;
+      }
+      input[type="file"] {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 20px;
+        border: 3px dashed #aaa;
+        border-radius: 10px;
+        max-width: 600px;
+        font-size: 24px;
+        color: #999;
+        text-align: center;
+      }
+      input[type="file"]::before {
+        content: "Drag and drop your image here or click to select";
+        display: block;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #999;
+      }
+      input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 10px 20px;
+        background-color: #06c;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 24px;
+      }
+      input[type="submit"]:hover {
+        background-color: #004c8c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Acne Detection App</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="files" accept="image/*" multiple>
+      <input type="submit" value="Detect Acne">
+    </form>
+  </body>
+</html>
