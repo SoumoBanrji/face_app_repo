@@ -1,0 +1,10 @@
+# faceaap
+
+This acne detection app uses a Support Vector Machine (SVM) classifier to predict whether an image contains acne. The app is implemented using Flask, a Python web framework.
+The app consists of three main components:
+model.py: This script loads and pre-processes training data, trains an SVM classifier on the data, and saves the trained classifier and StandardScaler object used to scale the data.
+app.py: This script loads the saved classifier and scaler objects, defines a function to make predictions on uploaded images, and implements a Flask web application that allows users to upload images and get predictions on whether the images contain acne or not.
+index.html: This HTML file defines the user interface for the app. It consists of a form that allows users to upload images and a button to submit the form.
+The train_model() function in model.py loads training images from the Sample_faces directory and pre-processes them by resizing them to 64x64 pixels, converting them to grayscale flattening them into 1D arrays. The function then splits the data into training and testing sets, scales the data using a StandardScaler object, trains an SVM classifier on the scaled data, and saves the trained classifier and scaler object to disk using pickle.
+The predict_images() function in app.py takes a list of uploaded image files and pre-processes each image by resizing it to 64x64 pixels, converting it to grayscale, flattening it into a 1D array, and scaling it using the StandardScaler object loaded from the disk. The function then uses the trained SVM classifier to make predictions on the scaled image data and returns a list of tuples containing the prediction label and the image data.
+The index.html file defines the user interface for the app using HTML and CSS. It consists of a form that allows users to upload images and a button to submit the form. When the form is submitted, the predict_images() function is called to make predictions on the uploaded images, and the results are displayed to the user in the results.html template.
