@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Acne Detection - Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Acne Detection</h1>
-        <h2>Results</h2>
-        <div class="predictions">
-            {% for prediction in predictions %}
-            <p>{{ prediction }}</p>
-            {% endfor %}
-        </div>
-        <div class="img-container">
-            {% for filename in filenames %}
-            <img src="{{ url_for('static', filename='images_uploaded/' + filename) }}" alt="{{ filename }}">
-            {% endfor %}
-        </div>
+  <head>
+    <title>Acne Detection Results</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 36px;
+        color: #333333;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 600px;
+      }
+      li {
+        display: block;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .img-container {
+        margin: 0 auto;
+        max-width: 600px;
+      }
+      img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Acne Detection Results</h1>
+    <div class="img-container">
+      {% for image in images %}
+        <img src="{{ image }}" alt="Uploaded Image">
+      {% endfor %}
     </div>
-</body>
+    <ul>
+      {% for prediction in predictions %}
+        <li class="{{ prediction|lower }}">{{ prediction }}</li>
+      {% endfor %}
+    </ul>
+  </body>
 </html>
