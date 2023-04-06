@@ -37,7 +37,7 @@ def train_model():
     X_test = scaler.transform(X_test)
 
     # Save scaler object
-    with open('scaler.pkl', 'wb') as f:
+    with open('Saved_pickle/scaler.pkl', 'wb') as f:
         pickle.dump(scaler, f)
 
     # Train SVM classifier
@@ -45,7 +45,7 @@ def train_model():
     clf.fit(X_train, y_train)
 
     # Save classifier object
-    with open('clf.pkl', 'wb') as f:
+    with open('Saved_pickle/clf.pkl', 'wb') as f:
         pickle.dump(clf, f)
 
     # Make predictions on test data

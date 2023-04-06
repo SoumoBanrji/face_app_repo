@@ -9,9 +9,9 @@ import base64
 app = Flask(__name__)
 
 # Load scaler and classifier objects
-with open('scaler.pkl', 'rb') as f:
+with open('Saved_pickle/scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
-with open('clf.pkl', 'rb') as f:
+with open('Saved_pickle/clf.pkl', 'rb') as f:
     clf = pickle.load(f)
 
 app.config['IMAGES_UPLOADS'] = 'static/images_uploaded'
